@@ -7,13 +7,19 @@
 int n_screen_width = 120;
 int n_screen_height = 40;
 
+
+//this is to locate the player position 
 float player_x_position = 8;
 float player_y_position = 8;
 float playerA = 0;
 
+
+// i think this will be to have a mini map
 int map_height = 16;
 int map_width = 16;
 
+
+// to detect if we are near a wall or far 
 float ffo_view = 3.14156/4;
 float fDepth = 16;
 int main(void)
