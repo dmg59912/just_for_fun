@@ -1,6 +1,8 @@
 #include<iostream>
 #include<chrono>
 #include<Windows.h>
+#include<vector>
+#include<algorithm>
 
 //using namespace std;
 
@@ -36,7 +38,7 @@ int main(void)
 
 	map += L"################";
 	map += L"#..............#";
-	map += L"#..###.........#";
+	map += L"#..#######.....#";
 	map += L"#..............#";
 	map += L"#..............#";
 	map += L"#..............#";
@@ -107,6 +109,7 @@ int main(void)
 			float fray_angle = (playerA - ffo_view / 2.0f) + ((float)x / (float)n_screen_width) * ffo_view;
 			float f_distance_to_wall = 0;
 			bool hit_wall = false;
+			bool bBoundry = false;
 
 			//need unit vector for ray in player space
 			float f_eye_x = sinf(fray_angle);
@@ -130,7 +133,36 @@ int main(void)
 				{
 					//ray is inbounds so test to see if the ray cell is a wall block 
 					if (map[n_testy * map_width + n_testx] == '#')
+					{
 						hit_wall = true;
+
+						// distance, then dot
+						std::vector<std::pair<float, float>> p;
+						for ( int tx= 0; tx < 2; tx++)
+							for (int ty = 0; ty < 2; ty++)
+							{
+								float vy = (float)n_testy + ty - player_y_position;
+								float vx = (float)n_testx + tx - player_x_position;
+								float d = std::sqrt(vx * vx + vy * vy);
+								float dot = (f_eye_x * vx / d) + (f_eye_y * vy / d);
+								p.push_back(std::make_pair(d, dot));
+							}
+
+
+						//sort pairs from closest to farthest
+						sort(p.begin(), p.end(), [](const std::pair<float, float>& left, const std::pair<float, float>& right)
+							{
+								return left.first < right.first;
+							});
+
+						float fBound = 0.01;
+						if (std::acos(p.at(0).second) < fBound) 
+							bBoundry = true;
+						if (std::acos(p.at(1).second) < fBound)
+							bBoundry = true;
+						//if (std::acos(p.at(2).second) < fBound)
+						//	bBoundry = true;
+					}
 			
 				}
 
@@ -151,6 +183,9 @@ int main(void)
 				nShade = 0x2591;
 			else
 				nShade = ' '; // too far
+
+			if (bBoundry)
+				nShade = 'I';
 
 			for (int y = 0; y < n_screen_height; y++)
 			{
