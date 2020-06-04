@@ -101,7 +101,7 @@ int main(void)
 				player_y_position += cosf(playerA) * 5.0f * fElapsedTime;
 			}
 		}
-	
+
 
 		for (int x = 0; x < n_screen_width; x++)
 		{
@@ -116,7 +116,7 @@ int main(void)
 			float f_eye_y = cosf(fray_angle);
 
 
-			while (!hit_wall && f_distance_to_wall < fDepth  )
+			while (!hit_wall && f_distance_to_wall < fDepth)
 			{
 				f_distance_to_wall += 0.1f;
 
@@ -138,7 +138,7 @@ int main(void)
 
 						// distance, then dot
 						std::vector<std::pair<float, float>> p;
-						for ( int tx= 0; tx < 2; tx++)
+						for (int tx = 0; tx < 2; tx++)
 							for (int ty = 0; ty < 2; ty++)
 							{
 								float vy = (float)n_testy + ty - player_y_position;
@@ -156,14 +156,14 @@ int main(void)
 							});
 
 						float fBound = 0.01;
-						if (std::acos(p.at(0).second) < fBound) 
+						if (std::acos(p.at(0).second) < fBound)
 							bBoundry = true;
 						if (std::acos(p.at(1).second) < fBound)
 							bBoundry = true;
 						//if (std::acos(p.at(2).second) < fBound)
-						//	bBoundry = true;
+							//bBoundry = true;
 					}
-			
+
 				}
 
 			}
@@ -185,7 +185,7 @@ int main(void)
 				nShade = ' '; // too far
 
 			if (bBoundry)
-				nShade = 'I';
+				nShade = ' ';
 
 			for (int y = 0; y < n_screen_height; y++)
 			{
@@ -212,6 +212,21 @@ int main(void)
 				}
 			}
 		}
+		// To display frame rate and other stats
+		swprintf_s(screen, 40, L"X=%3.2f, Y=%3.2f, A=%3.2f FPS=%3.2f ", player_x_position, player_y_position, playerA, 1.0f / fElapsedTime);
+
+		//Display map
+		for (int nx = 0; nx < map_width; nx++)
+		{
+			for (int ny = 0; ny < map_width; ny++)
+			{
+				screen[(ny + 1) * n_screen_width + nx] = map[ny * map_width + nx];
+
+			}
+		}
+
+		screen[((int)player_y_position + 1) * n_screen_width + (int)player_x_position] = 'P';
+
 		//set last value in our array with the escape character to know when to stop 
 		screen[n_screen_width * n_screen_height - 1] = '\0';
 		WriteConsoleOutputCharacter(hConsole, screen, n_screen_width * n_screen_height, { 0,0 }, &dwBytesWritten);

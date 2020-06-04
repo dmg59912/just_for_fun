@@ -1,0 +1,10 @@
+﻿  main.cpp
+C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(26,29): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(158,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(171,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Generating code
+  1 of 170 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  first_person_cmp_shooter.vcxproj -> C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\Release\first_person_cmp_shooter.exe

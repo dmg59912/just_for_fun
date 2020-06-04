@@ -1,4 +1,5 @@
 ﻿  main.cpp
-C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(17,27): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(84,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(26,29): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(158,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\main.cpp(171,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   first_person_cmp_shooter.vcxproj -> C:\Users\Rios\Desktop\C++\just_for_fun\first_person_cmp_shooter\x64\Debug\first_person_cmp_shooter.exe
