@@ -1,0 +1,2 @@
+C:\Users\Rios\Desktop\C++\simple_tetris\Debug\simple_tetris.exe
+C:\Users\Rios\Desktop\C++\simple_tetris\Debug\simple_tetris.pdb
