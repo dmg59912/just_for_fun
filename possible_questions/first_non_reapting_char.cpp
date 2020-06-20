@@ -1,6 +1,21 @@
 #include<iostream>
 #include<string>
 
+/*
+Given a string s consisting of small English letters, find and return the first instance of a non-repeating character in it. 
+If there is no such character, return '_'.
+
+Example 
+--For s = "abacabad", the output should be
+--firstNotRepeatingCharacter(s) = 'c'.
+
+--There are 2 non-repeating characters in the string: 'c' and 'd'. Return c since it appears in the string first.
+
+--For s = "abacabaabacaba", the output should be
+--firstNotRepeatingCharacter(s) = '_'.
+
+There are no characters in this string that do not repeat.
+*/
 
 
 
@@ -19,7 +34,7 @@ int main(void)
 char firstNotRepeatingCharacter(std::string s)
 {
     // check our index of a given character gives us the same value whitch will be 0 then there is only one unique value
-    // else it would give us different values since the first index 0 is not equal to the last index 'however many values of that given charecter index'
+    // else it would give us different values since the first index 0 is not equal to the last index 'however many values of that given character index' since it is located somewhere else
     for (int i = 0; i < s.length(); ++i)
     {
         if (s.find_first_of(s.at(i) ) == s.find_last_of(s.at(i)))
