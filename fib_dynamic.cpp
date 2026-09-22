@@ -1,6 +1,9 @@
 #include<iostream>
 const int SIZE = 60;
 
+
+//Two ways to run fib
+
 //return the sum of the n number of the fibbinacci sequence. EX. n = 6, will return 8
 int fib(int ); //basic recursion is 2^n call with n space complexity
 
